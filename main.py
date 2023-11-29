@@ -72,7 +72,7 @@ def get_processes(numero_oab: str = '84438/RS'):
     data_diario = data_diario.strftime("%Y-%m-%d")
 
     source_file = f"diario_tst_download.pdf"
-    dest_file = f"diario_tst_{data_diario}.pdf"
+    dest_file = f"diario_tst.pdf"
 
     if not os.path.exists(dest_file):
 
@@ -83,6 +83,7 @@ def get_processes(numero_oab: str = '84438/RS'):
                 file.write(response.content)
             split_and_save_combined_pages(source_file, dest_file)
             print(f"O PDF foi baixado com sucesso como {dest_file}")
+            os.remove(source_file)
         else:
             print(f"Erro ao baixar o PDF. Código de status: {response.status_code}")
 
