@@ -14,7 +14,8 @@ def split_and_save_combined_pages(input_file, output_file):
         pdf_reader = PdfReader(file)
         pdf_writer = PdfWriter()
 
-        for page_number in range(len(pdf_reader.pages)):
+        #for page_number in range(len(pdf_reader.pages)):
+        for page_number in range(15):
             page = pdf_reader.pages[page_number]
 
             # Obtém a largura da página
